@@ -2,6 +2,25 @@
 
 > Complete list of all available components in the design system
 
+## Component Maturity
+
+| Component | Status | Notes |
+|-----------|--------|-------|
+| Button | Beta | Variant and loading support; needs visual regression coverage |
+| Input | Beta | Label, helper, and error support; needs programmatic error wiring |
+| Checkbox | Beta | Native input with custom visual state |
+| Toggle | Beta | Native checkbox with switch semantics |
+| SearchInput | Beta | Clear action has accessible label |
+| Card | Beta | Tokenized container primitive |
+| Badge | Beta | Semantic variants available |
+| Avatar | Draft | Needs fallback image error behavior and status label guidance |
+| StatCard | Draft | Product-specific pattern; needs responsive and content rules |
+| ListItem | Beta | Keyboard activation added for clickable rows |
+| ProgressBar | Beta | Progressbar semantics added |
+| BottomNav | Beta | Mobile navigation landmark and active state |
+| Tabs | Beta | Tab semantics added; keyboard arrow support still needed |
+| Alert | Beta | Status and alert roles added |
+
 ## 📦 Available Components (14 Total)
 
 ### Form Controls (5)

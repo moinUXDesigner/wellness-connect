@@ -6,7 +6,7 @@
 
 ## 🎯 Overview
 
-You now have a complete, production-ready design system for **Wellness Connect**. This document provides instructions on how to use these components to build the full application.
+You now have a mobile-first design-system foundation for **Wellness Connect**. This document provides instructions on how to use these components to build the full application.
 
 ---
 
@@ -595,6 +595,6 @@ For each screen, verify:
 
 **Good luck building Wellness Connect!** 🌟
 
-The design system is complete, tested, and ready to use. All components are production-ready and follow best practices for accessibility, responsiveness, and user experience.
+The design system is ready for foundation-level screen building. Components now have a clearer maturity path toward enterprise-grade accessibility, responsiveness, testing, and governance.
 
 **Mind. Body. Better Together.**

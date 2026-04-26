@@ -43,12 +43,12 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
             ref={ref}
             className={`
               w-full h-11 px-4 rounded-md
-              bg-input-background border border-border
-              text-neutral-900 placeholder:text-neutral-400
+              bg-input-background border border-border-default
+              text-text-primary placeholder:text-text-muted
               transition-all duration-200
-              focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent
+              focus:outline-none focus:ring-2 focus:ring-focus-ring focus:border-transparent
               disabled:opacity-50 disabled:cursor-not-allowed
-              ${hasError ? 'border-error focus:ring-error' : ''}
+              ${hasError ? 'border-status-error focus:ring-status-error' : ''}
               ${leftIcon ? 'pl-10' : ''}
               ${rightIcon ? 'pr-10' : ''}
               ${className}
@@ -62,7 +62,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
           )}
         </div>
         {error && (
-          <p className="text-sm text-error">{error}</p>
+          <p className="text-sm text-status-error">{error}</p>
         )}
         {helperText && !error && (
           <p className="text-sm text-neutral-500">{helperText}</p>

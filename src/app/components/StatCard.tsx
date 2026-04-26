@@ -14,10 +14,10 @@ export interface StatCardProps {
 
 export const StatCard = ({ title, value, icon, trend, color = 'primary' }: StatCardProps) => {
   const colorStyles = {
-    primary: 'bg-primary-light text-primary',
-    secondary: 'bg-secondary-light text-secondary',
-    success: 'bg-success-light text-success',
-    warning: 'bg-warning-light text-warning',
+    primary: 'bg-action-primary-subtle text-action-primary',
+    secondary: 'bg-action-secondary-subtle text-secondary',
+    success: 'bg-status-success-subtle text-status-success',
+    warning: 'bg-status-warning-subtle text-status-warning',
     purple: 'bg-purple-light text-purple',
     teal: 'bg-teal-light text-teal',
   };
@@ -26,16 +26,16 @@ export const StatCard = ({ title, value, icon, trend, color = 'primary' }: StatC
     <Card variant="elevated" padding="md">
       <div className="flex items-start justify-between">
         <div className="flex-1">
-          <p className="text-sm text-neutral-600 mb-1">{title}</p>
-          <p className="text-2xl font-semibold text-neutral-900">{value}</p>
+          <p className="text-sm text-text-secondary mb-1">{title}</p>
+          <p className="text-2xl font-semibold text-text-primary">{value}</p>
           {trend && (
             <div className="flex items-center gap-1 mt-2">
               <span
                 className={`text-xs font-medium ${
-                  trend.direction === 'up' ? 'text-success' : 'text-error'
+                  trend.direction === 'up' ? 'text-status-success' : 'text-status-error'
                 }`}
               >
-                {trend.direction === 'up' ? '↑' : '↓'} {trend.value}
+                {trend.direction === 'up' ? '+' : '-'} {trend.value}
               </span>
             </div>
           )}

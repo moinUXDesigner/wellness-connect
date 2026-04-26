@@ -34,7 +34,14 @@ export const ProgressBar = ({
   };
 
   return (
-    <div className={`w-full ${className}`} {...props}>
+    <div
+      className={`w-full ${className}`}
+      role="progressbar"
+      aria-valuemin={0}
+      aria-valuemax={max}
+      aria-valuenow={Math.min(Math.max(value, 0), max)}
+      {...props}
+    >
       <div className={`w-full bg-neutral-200 rounded overflow-hidden ${sizeStyles[size]}`}>
         <div
           className={`${colorStyles[color]} h-full rounded transition-all duration-300 ease-out`}

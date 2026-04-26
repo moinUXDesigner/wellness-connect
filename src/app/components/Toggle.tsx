@@ -12,14 +12,15 @@ export const Toggle = forwardRef<HTMLInputElement, ToggleProps>(
           <input
             ref={ref}
             type="checkbox"
+            role="switch"
             className="peer sr-only"
             {...props}
           />
-          <div className="w-11 h-6 bg-neutral-300 rounded-full transition-all peer-checked:bg-primary peer-disabled:opacity-50 peer-disabled:cursor-not-allowed" />
-          <div className="absolute left-0.5 top-0.5 w-5 h-5 bg-white rounded-full shadow-sm transition-transform peer-checked:translate-x-5" />
+          <div className="w-11 h-6 bg-border-strong rounded-full transition-all peer-checked:bg-action-primary peer-focus-visible:ring-2 peer-focus-visible:ring-focus-ring peer-focus-visible:ring-offset-2 peer-disabled:opacity-50 peer-disabled:cursor-not-allowed" />
+          <div className="absolute left-0.5 top-0.5 w-5 h-5 bg-surface-elevated rounded-full shadow-sm transition-transform peer-checked:translate-x-5" />
         </div>
         {label && (
-          <span className="text-sm text-neutral-700 group-hover:text-neutral-900 select-none">
+          <span className="text-sm text-text-secondary group-hover:text-text-primary select-none">
             {label}
           </span>
         )}

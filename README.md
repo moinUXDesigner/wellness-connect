@@ -1,6 +1,6 @@
 # Wellness Connect Design System
 
-> **A comprehensive, production-ready design system for a premium wellness application**
+> **A mobile-first design-system foundation for a premium wellness application**
 
 ![Version](https://img.shields.io/badge/version-1.0.0-blue)
 ![React](https://img.shields.io/badge/React-18+-61dafb)
@@ -88,7 +88,7 @@ import { Button, type ButtonProps } from './components';
 
 ## 🎨 Design System Features
 
-### ✅ Complete Component Library
+### Current Component Library
 - **Form Controls:** Button, Input, Checkbox, Toggle, SearchInput
 - **Data Display:** Card, Badge, Avatar, StatCard, ListItem, ProgressBar
 - **Navigation:** BottomNav, Tabs
@@ -106,11 +106,11 @@ import { Button, type ButtonProps } from './components';
 - Tablet: 768px
 - Desktop: 1440px
 
-### ✅ Accessibility
-- WCAG AA compliant colors
-- Proper focus states
-- Semantic HTML
-- Screen reader friendly
+### Accessibility Foundation
+- Semantic HTML for core components
+- Focus-visible states for interactive components
+- Accessibility guidelines in `ACCESSIBILITY_GUIDELINES.md`
+- WCAG AA is the target for stable releases
 
 ### ✅ TypeScript Support
 - Fully typed components
@@ -177,6 +177,11 @@ import { Button, type ButtonProps } from './components';
 |----------|-------------|
 | **DESIGN_SYSTEM_GUIDE.md** | Complete component API reference, usage guidelines, and best practices |
 | **DESIGN_TOKENS_REFERENCE.md** | Quick reference for colors, spacing, typography, and common patterns |
+| **ROADMAP.md** | Roadmap from the current foundation to an enterprise-grade v2.0 system |
+| **BRAND_GUIDELINES.md** | Brand source of truth, voice, terminology, and content safety |
+| **TOKENS_ARCHITECTURE.md** | Primitive, semantic, and component token strategy |
+| **ACCESSIBILITY_GUIDELINES.md** | Accessibility baseline and component review checklist |
+| **CHANGELOG.md** | Release notes and migration history |
 | **App.tsx** | Live showcase with all components and examples |
 
 ---
@@ -264,10 +269,10 @@ All components are designed mobile-first and scale up beautifully to larger scre
 
 ## 🌟 Key Features
 
-✨ **14 Production-Ready Components**  
+✨ **14 Foundation Components**
 🎨 **Complete Design Token System**  
 📱 **Mobile-First & Responsive**  
-♿ **Accessible by Default**  
+♿ **Accessibility Baseline**
 📘 **TypeScript Support**  
 🎯 **Wellness-Focused UX**  
 📖 **Comprehensive Documentation**  

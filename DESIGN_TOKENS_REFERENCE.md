@@ -132,6 +132,21 @@ import { Button, Card, Badge } from './components';
 - **Info**: Neutral information
 - **Neutral**: Text, backgrounds, borders
 
+## Semantic Token Usage
+
+Prefer semantic tokens in product components:
+
+- `bg-surface-default` for app backgrounds
+- `bg-surface-elevated` for cards, sheets, and popovers
+- `text-text-primary` for primary text
+- `text-text-secondary` for supporting text
+- `border-border-default` for normal borders
+- `ring-focus-ring` for keyboard focus
+- `bg-action-primary` for primary actions
+- `bg-status-success-subtle` with `text-status-success` for success feedback
+
+Raw palette tokens such as `bg-primary` and `text-neutral-900` are still available, but they should mostly be used in token documentation, visual examples, or low-level system code.
+
 ## Mobile-First Breakpoints
 
 - Base: 375px (mobile)

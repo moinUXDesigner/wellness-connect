@@ -15,20 +15,21 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
             className="peer sr-only"
             {...props}
           />
-          <div className="w-5 h-5 border-2 border-neutral-300 rounded-md bg-white transition-all peer-checked:bg-primary peer-checked:border-primary peer-focus:ring-2 peer-focus:ring-primary peer-focus:ring-offset-2 peer-disabled:opacity-50 peer-disabled:cursor-not-allowed">
+          <div className="w-5 h-5 border-2 border-border-strong rounded-md bg-surface-elevated transition-all peer-checked:bg-action-primary peer-checked:border-action-primary peer-focus-visible:ring-2 peer-focus-visible:ring-focus-ring peer-focus-visible:ring-offset-2 peer-disabled:opacity-50 peer-disabled:cursor-not-allowed">
             <svg
-              className="w-full h-full text-white opacity-0 peer-checked:opacity-100 transition-opacity"
+              className="w-full h-full text-text-inverse opacity-0 peer-checked:opacity-100 transition-opacity"
               viewBox="0 0 20 20"
               fill="none"
               stroke="currentColor"
               strokeWidth="3"
+              aria-hidden="true"
             >
               <path d="M6 10l2 2 6-6" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
           </div>
         </div>
         {label && (
-          <span className="text-sm text-neutral-700 group-hover:text-neutral-900 select-none">
+          <span className="text-sm text-text-secondary group-hover:text-text-primary select-none">
             {label}
           </span>
         )}

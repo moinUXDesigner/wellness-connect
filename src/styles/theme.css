@@ -63,6 +63,62 @@
   --switch-background: #D1D5DB;
   --ring: #5B4CFF;
 
+  /* === Semantic Tokens === */
+  --surface-default: var(--background);
+  --surface-subtle: var(--neutral-50);
+  --surface-muted: var(--neutral-100);
+  --surface-elevated: var(--card);
+  --surface-overlay: var(--popover);
+
+  --text-primary: var(--neutral-900);
+  --text-secondary: var(--neutral-600);
+  --text-muted: var(--neutral-500);
+  --text-inverse: #ffffff;
+
+  --border-default: var(--border);
+  --border-strong: var(--neutral-300);
+  --focus-ring: var(--ring);
+
+  --action-primary: var(--primary);
+  --action-primary-hover: var(--primary-dark);
+  --action-primary-subtle: var(--primary-light);
+  --action-secondary: var(--secondary);
+  --action-secondary-hover: var(--secondary-dark);
+  --action-secondary-subtle: var(--secondary-light);
+  --action-danger: var(--error);
+  --action-danger-subtle: var(--error-light);
+
+  --status-success: var(--success);
+  --status-success-subtle: var(--success-light);
+  --status-warning: var(--warning);
+  --status-warning-subtle: var(--warning-light);
+  --status-error: var(--error);
+  --status-error-subtle: var(--error-light);
+  --status-info: var(--info);
+  --status-info-subtle: var(--info-light);
+
+  /* === Component Tokens === */
+  --button-primary-bg: var(--action-primary);
+  --button-primary-bg-hover: var(--action-primary-hover);
+  --button-primary-fg: var(--text-inverse);
+  --button-secondary-bg: var(--action-secondary);
+  --button-secondary-bg-hover: var(--action-secondary-hover);
+  --button-secondary-fg: var(--text-inverse);
+  --button-danger-bg: var(--action-danger);
+  --button-danger-fg: var(--text-inverse);
+
+  --input-bg: var(--input-background);
+  --input-border: var(--border-default);
+  --input-text: var(--text-primary);
+  --input-placeholder: var(--neutral-400);
+  --input-error: var(--status-error);
+
+  --card-bg: var(--surface-elevated);
+  --card-fg: var(--text-primary);
+  --card-border: var(--border-default);
+
+  --nav-active: var(--action-primary);
+
   /* === Typography System === */
   --font-size: 16px;
   --text-xs: 0.75rem;    /* 12px */
@@ -224,6 +280,53 @@
   --color-input-background: var(--input-background);
   --color-switch-background: var(--switch-background);
   --color-ring: var(--ring);
+
+  /* Semantic Tokens */
+  --color-surface-default: var(--surface-default);
+  --color-surface-subtle: var(--surface-subtle);
+  --color-surface-muted: var(--surface-muted);
+  --color-surface-elevated: var(--surface-elevated);
+  --color-surface-overlay: var(--surface-overlay);
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-muted: var(--text-muted);
+  --color-text-inverse: var(--text-inverse);
+  --color-border-default: var(--border-default);
+  --color-border-strong: var(--border-strong);
+  --color-focus-ring: var(--focus-ring);
+  --color-action-primary: var(--action-primary);
+  --color-action-primary-hover: var(--action-primary-hover);
+  --color-action-primary-subtle: var(--action-primary-subtle);
+  --color-action-secondary: var(--action-secondary);
+  --color-action-secondary-hover: var(--action-secondary-hover);
+  --color-action-secondary-subtle: var(--action-secondary-subtle);
+  --color-action-danger: var(--action-danger);
+  --color-action-danger-subtle: var(--action-danger-subtle);
+  --color-status-success: var(--status-success);
+  --color-status-success-subtle: var(--status-success-subtle);
+  --color-status-warning: var(--status-warning);
+  --color-status-warning-subtle: var(--status-warning-subtle);
+  --color-status-error: var(--status-error);
+  --color-status-error-subtle: var(--status-error-subtle);
+  --color-status-info: var(--status-info);
+  --color-status-info-subtle: var(--status-info-subtle);
+  --color-button-primary-bg: var(--button-primary-bg);
+  --color-button-primary-bg-hover: var(--button-primary-bg-hover);
+  --color-button-primary-fg: var(--button-primary-fg);
+  --color-button-secondary-bg: var(--button-secondary-bg);
+  --color-button-secondary-bg-hover: var(--button-secondary-bg-hover);
+  --color-button-secondary-fg: var(--button-secondary-fg);
+  --color-button-danger-bg: var(--button-danger-bg);
+  --color-button-danger-fg: var(--button-danger-fg);
+  --color-input-bg: var(--input-bg);
+  --color-input-border: var(--input-border);
+  --color-input-text: var(--input-text);
+  --color-input-placeholder: var(--input-placeholder);
+  --color-input-error: var(--input-error);
+  --color-card-bg: var(--card-bg);
+  --color-card-fg: var(--card-fg);
+  --color-card-border: var(--card-border);
+  --color-nav-active: var(--nav-active);
 
   /* Chart Colors */
   --color-chart-1: var(--chart-1);

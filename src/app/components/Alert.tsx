@@ -17,25 +17,26 @@ export const Alert = ({
   ...props
 }: AlertProps) => {
   const variantStyles = {
-    success: 'bg-success-light border-success text-success',
-    warning: 'bg-warning-light border-warning text-warning',
-    error: 'bg-error-light border-error text-error',
-    info: 'bg-info-light border-info text-info',
+    success: 'bg-status-success-subtle border-status-success text-status-success',
+    warning: 'bg-status-warning-subtle border-status-warning text-status-warning',
+    error: 'bg-status-error-subtle border-status-error text-status-error',
+    info: 'bg-status-info-subtle border-status-info text-status-info',
   };
 
   const defaultIcons = {
-    success: '✓',
-    warning: '⚠',
-    error: '✕',
-    info: 'ℹ',
+    success: 'OK',
+    warning: '!',
+    error: 'X',
+    info: 'i',
   };
 
   return (
     <div
       className={`flex gap-3 p-4 rounded-md border-l-4 ${variantStyles[variant]} ${className}`}
+      role={variant === 'error' ? 'alert' : 'status'}
       {...props}
     >
-      <div className="flex-shrink-0 text-xl">
+      <div className="flex-shrink-0 text-sm font-bold" aria-hidden="true">
         {icon || defaultIcons[variant]}
       </div>
       <div className="flex-1">
@@ -45,9 +46,11 @@ export const Alert = ({
       {onClose && (
         <button
           onClick={onClose}
-          className="flex-shrink-0 hover:opacity-70 transition-opacity"
+          className="flex-shrink-0 rounded-sm px-1 hover:opacity-70 transition-opacity focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus-ring focus-visible:ring-offset-2"
+          aria-label="Dismiss alert"
+          type="button"
         >
-          ✕
+          X
         </button>
       )}
     </div>

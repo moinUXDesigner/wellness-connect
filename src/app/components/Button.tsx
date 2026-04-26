@@ -21,14 +21,14 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     },
     ref
   ) => {
-    const baseStyles = 'inline-flex items-center justify-center font-medium transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed';
+    const baseStyles = 'inline-flex items-center justify-center font-medium transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus-ring focus-visible:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed';
 
     const variantStyles = {
-      primary: 'bg-primary text-primary-foreground hover:bg-primary-dark active:scale-95',
-      secondary: 'bg-secondary text-secondary-foreground hover:bg-secondary-dark active:scale-95',
-      outline: 'border-2 border-primary text-primary bg-transparent hover:bg-primary-light active:scale-95',
-      ghost: 'text-neutral-700 hover:bg-neutral-100 active:bg-neutral-200',
-      danger: 'bg-error text-white hover:opacity-90 active:scale-95',
+      primary: 'bg-action-primary text-text-inverse hover:bg-action-primary-hover active:scale-95',
+      secondary: 'bg-action-secondary text-text-inverse hover:bg-action-secondary-hover active:scale-95',
+      outline: 'border-2 border-action-primary text-action-primary bg-transparent hover:bg-action-primary-subtle active:scale-95',
+      ghost: 'text-text-secondary hover:bg-surface-muted hover:text-text-primary active:bg-neutral-200',
+      danger: 'bg-action-danger text-text-inverse hover:opacity-90 active:scale-95',
     };
 
     const sizeStyles = {
@@ -44,6 +44,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         ref={ref}
         className={`${baseStyles} ${variantStyles[variant]} ${sizeStyles[size]} ${widthStyle} ${className}`}
         disabled={disabled || isLoading}
+        aria-busy={isLoading || undefined}
         {...props}
       >
         {isLoading ? (

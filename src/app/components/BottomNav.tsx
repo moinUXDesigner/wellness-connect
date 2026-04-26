@@ -14,7 +14,7 @@ export interface BottomNavProps {
 
 export const BottomNav = ({ items, activeId }: BottomNavProps) => {
   return (
-    <nav className="fixed bottom-0 left-0 right-0 bg-white border-t border-border safe-area-bottom z-50">
+    <nav className="fixed bottom-0 left-0 right-0 bg-surface-elevated border-t border-border-default safe-area-bottom z-50" aria-label="Primary navigation">
       <div className="flex items-center justify-around h-16 px-2">
         {items.map((item) => {
           const isActive = item.id === activeId;
@@ -24,9 +24,11 @@ export const BottomNav = ({ items, activeId }: BottomNavProps) => {
               onClick={item.onClick}
               className={`flex flex-col items-center justify-center gap-1 px-3 py-2 rounded-md transition-all min-w-[60px] ${
                 isActive
-                  ? 'text-primary'
-                  : 'text-neutral-500 hover:text-neutral-700'
+                  ? 'text-nav-active'
+                  : 'text-text-muted hover:text-text-secondary'
               }`}
+              aria-current={isActive ? 'page' : undefined}
+              type="button"
             >
               <div className={`text-2xl ${isActive ? 'scale-110' : ''} transition-transform`}>
                 {item.icon}
