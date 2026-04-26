@@ -1,11 +1,36 @@
 {
   "name": "wellness-connect-design-system",
-  "private": true,
   "version": "1.2.0",
   "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist",
+    "README.md",
+    "CHANGELOG.md",
+    "DESIGN_TOKENS_REFERENCE.md",
+    "TOKENS_ARCHITECTURE.md",
+    "ACCESSIBILITY_GUIDELINES.md",
+    "LAYOUT_GUIDELINES.md"
+  ],
+  "sideEffects": [
+    "**/*.css"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    },
+    "./styles.css": "./dist/styles.css",
+    "./package.json": "./package.json"
+  },
   "scripts": {
     "build": "vite build",
-    "dev": "vite"
+    "build:app": "vite build --config vite.app.config.ts",
+    "dev": "vite",
+    "prepare": "npm run build"
   },
   "dependencies": {
     "@emotion/react": "11.14.0",
@@ -67,20 +92,14 @@
   "devDependencies": {
     "@tailwindcss/vite": "4.1.12",
     "@vitejs/plugin-react": "4.7.0",
+    "typescript": "^5.9.3",
+    "vite-plugin-dts": "^4.5.4",
     "tailwindcss": "4.1.12",
     "vite": "6.3.5"
   },
   "peerDependencies": {
     "react": "18.3.1",
     "react-dom": "18.3.1"
-  },
-  "peerDependenciesMeta": {
-    "react": {
-      "optional": true
-    },
-    "react-dom": {
-      "optional": true
-    }
   },
   "pnpm": {
     "overrides": {

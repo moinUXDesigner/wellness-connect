@@ -80,6 +80,33 @@ Prefer semantic tokens in product UI:
 
 ## Quick Start
 
+Install from GitHub in another React app:
+
+```bash
+npm install github:moinUXDesigner/wellness-connect
+```
+
+Import the package styles once near your app root:
+
+```tsx
+import 'wellness-connect-design-system/styles.css';
+```
+
+Then import components from the package:
+
+```tsx
+import {
+  AppShell,
+  Button,
+  Card,
+  ContentContainer,
+  PageHeader,
+  ResponsiveGrid,
+} from 'wellness-connect-design-system';
+```
+
+Local source usage inside this repo:
+
 ```tsx
 import {
   AppShell,
@@ -153,9 +180,12 @@ Available scripts:
 ```bash
 npm run dev
 npm run build
+npm run build:app
 ```
 
-This environment may not have Node or npm installed, so local command availability can vary by machine.
+`npm run build` creates the reusable library package in `dist/`.
+`npm run build:app` builds the local showcase app.
+`npm run dev` runs the local showcase app.
 
 ## Roadmap Priorities
 
