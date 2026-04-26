@@ -7,7 +7,7 @@ export interface ToggleProps extends Omit<InputHTMLAttributes<HTMLInputElement>,
 export const Toggle = forwardRef<HTMLInputElement, ToggleProps>(
   ({ label, className = '', ...props }, ref) => {
     return (
-      <label className="inline-flex items-center gap-3 cursor-pointer group">
+      <label className={`inline-flex items-center gap-3 cursor-pointer group ${className}`}>
         <div className="relative">
           <input
             ref={ref}

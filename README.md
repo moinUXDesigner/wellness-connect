@@ -1,300 +1,174 @@
 # Wellness Connect Design System
 
-> **A mobile-first design-system foundation for a premium wellness application**
+> A mobile-first design-system foundation for a premium wellness application.
 
-![Version](https://img.shields.io/badge/version-1.0.0-blue)
+![Version](https://img.shields.io/badge/version-1.2.0-blue)
 ![React](https://img.shields.io/badge/React-18+-61dafb)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5+-3178c6)
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind-4.0-38bdf8)
 
----
+## Overview
 
-## 📖 Overview
+**Wellness Connect** is a design system for a wellness platform that combines counselling, personal training, appointment booking, progress tracking, and support.
 
-**Wellness Connect** is a mobile-first design system built for a wellness application that combines:
-- 🧠 Counselling Psychology Services
-- 💪 Gym / Personal Training Services
-- 📅 Appointment Booking
-- 📊 Progress Tracking
-- 💬 Help Desk Support
+Brand principles:
 
-**Brand Identity:** Calm • Trustworthy • Motivating • Professional • Premium
+- Calm
+- Trustworthy
+- Motivating
+- Professional
+- Human
+- Premium
+- Supportive
 
-**Tagline:** *Mind. Body. Better Together.*
+Tagline: **Mind. Body. Better Together.**
 
----
+## Current Maturity
 
-## 🚀 Quick Start
+This project is a foundation moving toward enterprise-grade maturity. It now includes brand guidance, roadmap, token architecture, accessibility guidance, layout primitives, and a growing React component library.
 
-### View the Design System
+It is not yet a fully enterprise-grade system because automated tests, visual regression, Storybook, Figma variable mapping, and full design-code parity are still roadmap items.
+
+## Component Library
+
+### Core Components
+
+- Alert
+- Avatar
+- Badge
+- BottomNav
+- Button
+- Card
+- Checkbox
+- Input
+- ListItem
+- ProgressBar
+- SearchInput
+- StatCard
+- Tabs
+- Toggle
+
+### Layout Components
+
+- AppShell
+- ContentContainer
+- PageHeader
+- SectionHeader
+- Stack
+- Cluster
+- ResponsiveGrid
+- Topbar
+- Sidebar
+
+## Design Tokens
+
+Tokens are defined in `src/styles/theme.css`.
+
+The token system has three layers:
+
+- Primitive tokens: raw palette, spacing, radius, type, and shadow values
+- Semantic tokens: product meaning such as `surface`, `text`, `border`, `action`, and `status`
+- Component tokens: component-specific aliases for buttons, inputs, cards, and navigation
+
+Prefer semantic tokens in product UI:
+
+```tsx
+<div className="bg-surface-elevated text-text-primary border border-border-default">
+  <Button variant="primary">Book appointment</Button>
+</div>
+```
+
+## Quick Start
+
+```tsx
+import {
+  AppShell,
+  Button,
+  Card,
+  ContentContainer,
+  PageHeader,
+  ResponsiveGrid,
+} from './components';
+```
+
+```tsx
+<AppShell>
+  <PageHeader
+    title="Appointments"
+    description="Review upcoming counselling and training sessions."
+    actions={<Button>Book session</Button>}
+  />
+  <ResponsiveGrid columns={3}>
+    <Card variant="elevated" padding="lg">Upcoming session</Card>
+    <Card variant="elevated" padding="lg">Progress summary</Card>
+    <Card variant="elevated" padding="lg">Support status</Card>
+  </ResponsiveGrid>
+</AppShell>
+```
+
+## Project Structure
+
+```text
+src/
+  app/
+    components/
+      layout/               Layout primitives
+      ui/                   Generated Radix/shadcn primitives
+      *.tsx                 Wellness Connect public components
+    App.tsx                 Design-system showcase
+  styles/
+    theme.css               Design tokens and Tailwind theme bridge
+```
+
+The public design-system API is `src/app/components/index.ts`. Treat `src/app/components/ui/` as lower-level generated primitives unless a component is explicitly promoted into the public API.
+
+## Documentation
+
+| Document | Purpose |
+| --- | --- |
+| `BRAND_GUIDELINES.md` | Brand source of truth, voice, terminology, and content safety |
+| `ROADMAP.md` | Enterprise maturity roadmap from v1.1 to v2.0 |
+| `COMPONENT_INVENTORY.md` | Component list, maturity, props, and gaps |
+| `DESIGN_TOKENS_REFERENCE.md` | Token quick reference |
+| `TOKENS_ARCHITECTURE.md` | Primitive, semantic, and component token strategy |
+| `ACCESSIBILITY_GUIDELINES.md` | Accessibility baseline and review checklist |
+| `LAYOUT_GUIDELINES.md` | Responsive layout rules and primitives |
+| `CHANGELOG.md` | Release notes and migration history |
+
+## Accessibility
+
+The system targets WCAG 2.2 AA for stable releases. Current improvements include:
+
+- Visible focus states on interactive components
+- ARIA state wiring for tabs, alerts, progress, navigation, and inputs
+- Keyboard activation for clickable list rows
+- Accessible labels for icon-only actions
+
+Automated accessibility testing is still a roadmap item.
+
+## Development Notes
+
+Available scripts:
 
 ```bash
-# The design system showcase is running in App.tsx
-# Open the application to see all components, colors, typography, and examples
+npm run dev
+npm run build
 ```
 
-### Import Components
+This environment may not have Node or npm installed, so local command availability can vary by machine.
 
-```tsx
-// Import individual components
-import { Button, Card, Badge } from './components';
+## Roadmap Priorities
 
-// Or import with types
-import { Button, type ButtonProps } from './components';
-```
+Near-term priorities:
 
-### Use Design Tokens
+- Add Storybook or an equivalent component gallery
+- Add unit and accessibility tests
+- Expand core form, overlay, feedback, navigation, and data components
+- Add Wellness Connect domain components such as AppointmentCard, ExpertCard, SessionCard, MoodSelector, and ProgressSummaryCard
+- Map tokens and component variants back to Figma
 
-```tsx
-// All design tokens are available as Tailwind classes
-<div className="bg-primary text-white p-4 rounded-xl shadow-card">
-  <h1 className="text-2xl font-semibold">Hello Wellness</h1>
-</div>
-```
+## License
 
----
+Created for the Wellness Connect application.
 
-## 📁 Project Structure
-
-```
-/src
-  /app
-    /components/          # All reusable UI components
-      Alert.tsx
-      Avatar.tsx
-      Badge.tsx
-      BottomNav.tsx
-      Button.tsx
-      Card.tsx
-      Checkbox.tsx
-      Input.tsx
-      ListItem.tsx
-      ProgressBar.tsx
-      SearchInput.tsx
-      StatCard.tsx
-      Tabs.tsx
-      Toggle.tsx
-      index.ts            # Component exports
-    App.tsx               # Design system showcase
-  /styles
-    fonts.css             # Inter font import
-    theme.css             # Design tokens and CSS variables
-
-/DESIGN_SYSTEM_GUIDE.md       # Comprehensive documentation
-/DESIGN_TOKENS_REFERENCE.md   # Quick reference guide
-```
-
----
-
-## 🎨 Design System Features
-
-### Current Component Library
-- **Form Controls:** Button, Input, Checkbox, Toggle, SearchInput
-- **Data Display:** Card, Badge, Avatar, StatCard, ListItem, ProgressBar
-- **Navigation:** BottomNav, Tabs
-- **Feedback:** Alert
-
-### ✅ Design Tokens
-- **Colors:** Primary, Secondary, Accents, Semantic, Neutrals
-- **Typography:** 8 size scales with Inter font
-- **Spacing:** 9-point scale (4px - 64px)
-- **Shadows:** 4 elevation levels
-- **Radius:** 4 size variants
-
-### ✅ Mobile-First & Responsive
-- Base: 375px (mobile)
-- Tablet: 768px
-- Desktop: 1440px
-
-### Accessibility Foundation
-- Semantic HTML for core components
-- Focus-visible states for interactive components
-- Accessibility guidelines in `ACCESSIBILITY_GUIDELINES.md`
-- WCAG AA is the target for stable releases
-
-### ✅ TypeScript Support
-- Fully typed components
-- Exported type definitions
-- IntelliSense support
-
----
-
-## 🎯 Component Examples
-
-### Buttons
-```tsx
-<Button variant="primary" size="md">Primary Action</Button>
-<Button variant="outline" size="sm">Secondary</Button>
-<Button variant="danger" isLoading>Deleting...</Button>
-```
-
-### Cards & Stats
-```tsx
-<Card variant="elevated" padding="lg">
-  <StatCard
-    title="Total Sessions"
-    value="24"
-    icon="📅"
-    color="primary"
-    trend={{ value: '12%', direction: 'up' }}
-  />
-</Card>
-```
-
-### Forms
-```tsx
-<Input 
-  label="Email" 
-  placeholder="you@example.com"
-  error="Email is required"
-  fullWidth 
-/>
-<Checkbox label="I agree to terms" />
-<Toggle label="Enable notifications" defaultChecked />
-```
-
-### Navigation
-```tsx
-<BottomNav 
-  items={navItems} 
-  activeId="home" 
-/>
-
-<Tabs
-  items={[
-    { id: 'tab1', label: 'Overview', content: <div>Content</div> },
-    { id: 'tab2', label: 'Details', content: <div>Details</div> },
-  ]}
-  variant="pills"
-/>
-```
-
----
-
-## 📚 Documentation
-
-| Document | Description |
-|----------|-------------|
-| **DESIGN_SYSTEM_GUIDE.md** | Complete component API reference, usage guidelines, and best practices |
-| **DESIGN_TOKENS_REFERENCE.md** | Quick reference for colors, spacing, typography, and common patterns |
-| **ROADMAP.md** | Roadmap from the current foundation to an enterprise-grade v2.0 system |
-| **BRAND_GUIDELINES.md** | Brand source of truth, voice, terminology, and content safety |
-| **TOKENS_ARCHITECTURE.md** | Primitive, semantic, and component token strategy |
-| **ACCESSIBILITY_GUIDELINES.md** | Accessibility baseline and component review checklist |
-| **CHANGELOG.md** | Release notes and migration history |
-| **App.tsx** | Live showcase with all components and examples |
-
----
-
-## 🎨 Color Palette
-
-### Primary Colors
-- **Primary:** `#5B4CFF` - Main CTAs, active states
-- **Secondary:** `#00D9D5` - Secondary actions, accents
-
-### Semantic Colors
-- **Success:** `#10B981` - Positive states
-- **Warning:** `#F59E0B` - Cautions
-- **Error:** `#EF4444` - Errors
-- **Info:** `#3B82F6` - Information
-
-### Neutrals
-- Range from `#111827` (900) to `#F9FAFB` (50)
-
----
-
-## 🔧 Technology Stack
-
-- **React** 18+
-- **TypeScript** 5+
-- **Tailwind CSS** 4.0
-- **Google Fonts** - Inter
-
----
-
-## 📱 Mobile-First Approach
-
-All components are designed mobile-first and scale up beautifully to larger screens:
-
-```tsx
-// Mobile first, then adapt
-<div className="p-4 md:p-6 lg:p-8">
-  <h1 className="text-xl md:text-2xl lg:text-3xl">
-    Responsive Typography
-  </h1>
-</div>
-```
-
----
-
-## 🎯 For CODEX / Developers
-
-### Getting Started
-
-1. **Review the Design System**
-   - Open `App.tsx` to see all components in action
-   - Browse through the three tabs: Design, Components, Examples
-
-2. **Read Documentation**
-   - `DESIGN_SYSTEM_GUIDE.md` for detailed API docs
-   - `DESIGN_TOKENS_REFERENCE.md` for quick reference
-
-3. **Import & Use**
-   ```tsx
-   import { Button, Card, Avatar } from './components';
-   ```
-
-4. **Follow Design Tokens**
-   - Use `bg-primary`, `text-neutral-700`, `gap-4`, etc.
-   - All tokens are defined in `/src/styles/theme.css`
-
-5. **Build Application Screens**
-   - Use the components to build:
-     - Landing pages
-     - Auth flows (Login/Signup)
-     - Dashboards (Client, Counsellor, Trainer, Admin)
-     - Appointment booking
-     - Progress tracking
-     - Profile screens
-
-### Component Philosophy
-
-- **Composable:** Components work well together
-- **Flexible:** Props for customization
-- **Typed:** Full TypeScript support
-- **Accessible:** WCAG compliant
-- **Consistent:** Design tokens ensure visual harmony
-
----
-
-## 🌟 Key Features
-
-✨ **14 Foundation Components**
-🎨 **Complete Design Token System**  
-📱 **Mobile-First & Responsive**  
-♿ **Accessibility Baseline**
-📘 **TypeScript Support**  
-🎯 **Wellness-Focused UX**  
-📖 **Comprehensive Documentation**  
-🚀 **Ready for Implementation**
-
----
-
-## 📞 Support
-
-For questions, component requests, or issues:
-1. Review the design system showcase in `App.tsx`
-2. Check `DESIGN_SYSTEM_GUIDE.md` for detailed documentation
-3. Reference `DESIGN_TOKENS_REFERENCE.md` for quick lookups
-
----
-
-## 📄 License
-
-This design system is created for Wellness Connect application.
-
----
-
-**Built with ❤️ for a healthier, happier world**
-
-*Mind. Body. Better Together.*
+**Mind. Body. Better Together.**

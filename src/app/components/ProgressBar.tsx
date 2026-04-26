@@ -17,7 +17,9 @@ export const ProgressBar = ({
   className = '',
   ...props
 }: ProgressBarProps) => {
-  const percentage = Math.min(Math.max((value / max) * 100, 0), 100);
+  const safeMax = max > 0 ? max : 100;
+  const safeValue = Math.min(Math.max(value, 0), safeMax);
+  const percentage = Math.min(Math.max((safeValue / safeMax) * 100, 0), 100);
 
   const colorStyles = {
     primary: 'bg-primary',
@@ -38,18 +40,18 @@ export const ProgressBar = ({
       className={`w-full ${className}`}
       role="progressbar"
       aria-valuemin={0}
-      aria-valuemax={max}
-      aria-valuenow={Math.min(Math.max(value, 0), max)}
+      aria-valuemax={safeMax}
+      aria-valuenow={safeValue}
       {...props}
     >
-      <div className={`w-full bg-neutral-200 rounded overflow-hidden ${sizeStyles[size]}`}>
+      <div className={`w-full bg-surface-muted rounded overflow-hidden ${sizeStyles[size]}`}>
         <div
           className={`${colorStyles[color]} h-full rounded transition-all duration-300 ease-out`}
           style={{ width: `${percentage}%` }}
         />
       </div>
       {showLabel && (
-        <p className="text-xs text-neutral-600 mt-1 text-right">{Math.round(percentage)}%</p>
+        <p className="text-xs text-text-secondary mt-1 text-right">{Math.round(percentage)}%</p>
       )}
     </div>
   );

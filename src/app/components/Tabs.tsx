@@ -1,4 +1,4 @@
-import { ReactNode, useState } from 'react';
+import { KeyboardEvent, ReactNode, useState } from 'react';
 
 export interface TabItem {
   id: string;
@@ -16,12 +16,47 @@ export const Tabs = ({ items, defaultTabId, variant = 'default' }: TabsProps) =>
   const [activeTab, setActiveTab] = useState(defaultTabId || items[0]?.id);
 
   const activeContent = items.find((item) => item.id === activeTab)?.content;
+  const activeIndex = Math.max(items.findIndex((item) => item.id === activeTab), 0);
+
+  const focusTab = (index: number) => {
+    const item = items[index];
+    if (!item) return;
+    setActiveTab(item.id);
+    window.requestAnimationFrame(() => {
+      document.getElementById(`tab-${item.id}`)?.focus();
+    });
+  };
+
+  const handleKeyDown = (event: KeyboardEvent<HTMLDivElement>) => {
+    if (!items.length) return;
+
+    if (event.key === 'ArrowRight') {
+      event.preventDefault();
+      focusTab((activeIndex + 1) % items.length);
+    }
+
+    if (event.key === 'ArrowLeft') {
+      event.preventDefault();
+      focusTab((activeIndex - 1 + items.length) % items.length);
+    }
+
+    if (event.key === 'Home') {
+      event.preventDefault();
+      focusTab(0);
+    }
+
+    if (event.key === 'End') {
+      event.preventDefault();
+      focusTab(items.length - 1);
+    }
+  };
 
   return (
     <div className="w-full">
       <div
         className={`flex gap-1 ${variant === 'default' ? 'border-b border-border-default' : 'bg-surface-muted p-1 rounded-lg'}`}
         role="tablist"
+        onKeyDown={handleKeyDown}
       >
         {items.map((item) => {
           const isActive = item.id === activeTab;

@@ -1,333 +1,110 @@
-# Wellness Connect - Component Inventory
+# Wellness Connect Component Inventory
 
-> Complete list of all available components in the design system
+> Public inventory for the Wellness Connect design-system API.
+
+## Summary
+
+| Category | Count |
+| --- | ---: |
+| Core components | 14 |
+| Layout components | 9 |
+| Public components total | 23 |
 
 ## Component Maturity
 
 | Component | Status | Notes |
-|-----------|--------|-------|
-| Button | Beta | Variant and loading support; needs visual regression coverage |
-| Input | Beta | Label, helper, and error support; needs programmatic error wiring |
+| --- | --- | --- |
+| Button | Beta | Variants, loading state, focus-visible state |
+| Input | Beta | Label, helper, error, `aria-describedby`, and invalid state wiring |
 | Checkbox | Beta | Native input with custom visual state |
 | Toggle | Beta | Native checkbox with switch semantics |
-| SearchInput | Beta | Clear action has accessible label |
+| SearchInput | Beta | Search input with accessible clear action |
 | Card | Beta | Tokenized container primitive |
 | Badge | Beta | Semantic variants available |
 | Avatar | Draft | Needs fallback image error behavior and status label guidance |
 | StatCard | Draft | Product-specific pattern; needs responsive and content rules |
-| ListItem | Beta | Keyboard activation added for clickable rows |
-| ProgressBar | Beta | Progressbar semantics added |
+| ListItem | Beta | Keyboard activation for clickable rows |
+| ProgressBar | Beta | Progressbar semantics and safe max handling |
 | BottomNav | Beta | Mobile navigation landmark and active state |
-| Tabs | Beta | Tab semantics added; keyboard arrow support still needed |
-| Alert | Beta | Status and alert roles added |
+| Tabs | Beta | Tab semantics with arrow, Home, and End keyboard support |
+| Alert | Beta | Status and alert roles |
+| AppShell | Beta | Responsive app frame with optional topbar, sidebar, and bottom nav |
+| ContentContainer | Beta | Standard gutters and max-widths |
+| PageHeader | Beta | Page title, description, eyebrow, and actions |
+| SectionHeader | Beta | Section title, description, and actions |
+| Stack | Beta | Vertical rhythm primitive |
+| Cluster | Beta | Wrapping horizontal layout primitive |
+| ResponsiveGrid | Beta | Responsive grid primitive |
+| Topbar | Beta | Header navigation region |
+| Sidebar | Beta | Desktop navigation rail |
 
-## 📦 Available Components (14 Total)
+## Core Components
 
-### Form Controls (5)
+### Form Controls
 
-| Component | File | Purpose | Variants |
-|-----------|------|---------|----------|
-| **Button** | `Button.tsx` | Primary action button | primary, secondary, outline, ghost, danger |
-| **Input** | `Input.tsx` | Text input field | with label, error, helper text, icons |
-| **Checkbox** | `Checkbox.tsx` | Checkbox selection | with/without label |
-| **Toggle** | `Toggle.tsx` | Toggle switch | with/without label |
-| **SearchInput** | `SearchInput.tsx` | Search input with icon | with clear button |
+| Component | Purpose | Key variants or props |
+| --- | --- | --- |
+| Button | Primary action button | `primary`, `secondary`, `outline`, `ghost`, `danger`; `sm`, `md`, `lg`; loading |
+| Input | Text input field | label, helper text, error, icons, full width |
+| Checkbox | Checkbox selection | label, native input props |
+| Toggle | Switch-style binary setting | label, native input props |
+| SearchInput | Search field | clear action, native input props |
 
-### Data Display (6)
+### Data Display
 
-| Component | File | Purpose | Variants |
-|-----------|------|---------|----------|
-| **Card** | `Card.tsx` | Container card | default, bordered, elevated |
-| **Badge** | `Badge.tsx` | Status badge | primary, secondary, success, warning, error, info, neutral |
-| **Avatar** | `Avatar.tsx` | User avatar | sm, md, lg, xl - with badge option |
-| **StatCard** | `StatCard.tsx` | Statistics display | with icon, trend indicator |
-| **ListItem** | `ListItem.tsx` | List item row | with left/right content |
-| **ProgressBar** | `ProgressBar.tsx` | Progress indicator | sm, md, lg - with label option |
+| Component | Purpose | Key variants or props |
+| --- | --- | --- |
+| Card | Container card | `default`, `bordered`, `elevated`; padding scale |
+| Badge | Status badge | primary, secondary, success, warning, error, info, neutral |
+| Avatar | User avatar | sizes, initials fallback, badge indicator |
+| StatCard | Statistics display | icon, trend, color |
+| ListItem | List row | left/right content, clickable row |
+| ProgressBar | Progress indicator | color, size, label |
 
-### Navigation (2)
+### Navigation And Feedback
 
-| Component | File | Purpose | Variants |
-|-----------|------|---------|----------|
-| **BottomNav** | `BottomNav.tsx` | Mobile bottom navigation | Active state highlighting |
-| **Tabs** | `Tabs.tsx` | Tabbed interface | default, pills |
+| Component | Purpose | Key variants or props |
+| --- | --- | --- |
+| BottomNav | Mobile navigation | items, active item |
+| Tabs | Tabbed interface | default, pills |
+| Alert | Feedback message | success, warning, error, info |
 
-### Feedback (1)
+## Layout Components
 
-| Component | File | Purpose | Variants |
-|-----------|------|---------|----------|
-| **Alert** | `Alert.tsx` | Alert message | success, warning, error, info |
+| Component | Purpose |
+| --- | --- |
+| AppShell | Standard application frame |
+| ContentContainer | Page gutter and width control |
+| PageHeader | Page-level title and actions |
+| SectionHeader | Section-level title and actions |
+| Stack | Vertical spacing primitive |
+| Cluster | Wrapping horizontal spacing primitive |
+| ResponsiveGrid | Responsive card/grid layout |
+| Topbar | Header navigation |
+| Sidebar | Desktop navigation rail |
 
----
+## Public Import
 
-## 🎨 Component Properties Quick Reference
-
-### Button Props
 ```tsx
-variant?: 'primary' | 'secondary' | 'outline' | 'ghost' | 'danger'
-size?: 'sm' | 'md' | 'lg'
-isLoading?: boolean
-fullWidth?: boolean
+import {
+  AppShell,
+  Button,
+  Card,
+  ContentContainer,
+  PageHeader,
+  ResponsiveGrid,
+} from './components';
 ```
 
-### Card Props
-```tsx
-variant?: 'default' | 'bordered' | 'elevated'
-padding?: 'none' | 'sm' | 'md' | 'lg'
-```
+## Known Gaps
 
-### Badge Props
-```tsx
-variant?: 'primary' | 'secondary' | 'success' | 'warning' | 'error' | 'info' | 'neutral'
-size?: 'sm' | 'md'
-```
+- No Storybook or component-state gallery yet.
+- No automated unit, accessibility, or visual regression tests yet.
+- `Avatar` needs image failure handling.
+- Domain components are not implemented yet.
+- Figma component/variable mapping is not implemented yet.
+- Generated `ui/` primitives need a formal public/internal boundary.
 
-### Avatar Props
-```tsx
-name?: string
-src?: string
-size?: 'sm' | 'md' | 'lg' | 'xl'
-showBadge?: boolean
-badgeColor?: 'success' | 'warning' | 'error'
-```
+## Version
 
-### Input Props
-```tsx
-label?: string
-error?: string
-helperText?: string
-leftIcon?: ReactNode
-rightIcon?: ReactNode
-fullWidth?: boolean
-```
-
-### Alert Props
-```tsx
-variant?: 'success' | 'warning' | 'error' | 'info'
-title?: string
-icon?: ReactNode
-onClose?: () => void
-```
-
-### StatCard Props
-```tsx
-title: string
-value: string | number
-icon?: ReactNode
-trend?: { value: string; direction: 'up' | 'down' }
-color?: 'primary' | 'secondary' | 'success' | 'warning' | 'purple' | 'teal'
-```
-
-### ProgressBar Props
-```tsx
-value: number
-max?: number
-color?: 'primary' | 'secondary' | 'success' | 'warning' | 'error'
-size?: 'sm' | 'md' | 'lg'
-showLabel?: boolean
-```
-
-### BottomNav Props
-```tsx
-items: Array<{
-  id: string
-  label: string
-  icon: ReactNode
-  onClick?: () => void
-}>
-activeId?: string
-```
-
-### Tabs Props
-```tsx
-items: Array<{
-  id: string
-  label: string
-  content: ReactNode
-}>
-defaultTabId?: string
-variant?: 'default' | 'pills'
-```
-
-### ListItem Props
-```tsx
-title: string
-subtitle?: string
-leftContent?: ReactNode
-rightContent?: ReactNode
-onClick?: () => void
-```
-
-### Checkbox Props
-```tsx
-label?: string
-// + all standard input checkbox attributes
-```
-
-### Toggle Props
-```tsx
-label?: string
-// + all standard input checkbox attributes
-```
-
-### SearchInput Props
-```tsx
-onClear?: () => void
-value?: string
-// + all standard input attributes
-```
-
----
-
-## 📋 Component Combinations
-
-### Session Card Pattern
-```tsx
-<Card variant="elevated" padding="lg">
-  <div className="flex gap-4">
-    <Avatar name="Dr. Sarah" size="lg" showBadge />
-    <div>
-      <h3>Upcoming Session</h3>
-      <p>Dr. Sarah - Counselling</p>
-      <Badge variant="success">Confirmed</Badge>
-      <Button variant="primary" size="sm">Join</Button>
-    </div>
-  </div>
-</Card>
-```
-
-### Stat Dashboard Pattern
-```tsx
-<div className="grid grid-cols-2 gap-4">
-  <StatCard title="Sessions" value="24" icon="📅" color="primary" />
-  <StatCard title="Goals" value="8" icon="🎯" color="success" />
-</div>
-```
-
-### List with Items Pattern
-```tsx
-<Card variant="elevated" padding="none">
-  <ListItem
-    title="Dr. Johnson"
-    subtitle="Today at 2:00 PM"
-    leftContent={<Avatar name="Dr. Johnson" />}
-    rightContent={<Badge variant="success">Confirmed</Badge>}
-  />
-</Card>
-```
-
-### Form Pattern
-```tsx
-<Card variant="elevated" padding="lg">
-  <Input label="Email" fullWidth />
-  <Input label="Password" type="password" fullWidth />
-  <Checkbox label="Remember me" />
-  <Button variant="primary" fullWidth>Login</Button>
-</Card>
-```
-
----
-
-## 🎯 Usage Statistics
-
-- **Total Components:** 14
-- **Form Controls:** 5 (35.7%)
-- **Data Display:** 6 (42.9%)
-- **Navigation:** 2 (14.3%)
-- **Feedback:** 1 (7.1%)
-
----
-
-## 🚀 Import Methods
-
-### Method 1: Individual Imports
-```tsx
-import { Button } from './components/Button';
-import { Card } from './components/Card';
-```
-
-### Method 2: Index Imports (Recommended)
-```tsx
-import { Button, Card, Badge, Avatar } from './components';
-```
-
-### Method 3: With Types
-```tsx
-import { Button, type ButtonProps } from './components';
-```
-
----
-
-## 📱 Responsive Behavior
-
-All components are mobile-first and responsive:
-
-- **Button:** Adapts to container width with `fullWidth` prop
-- **Card:** Responsive padding based on viewport
-- **BottomNav:** Fixed at bottom on mobile, can be adapted for desktop sidebar
-- **Tabs:** Scrollable on mobile, full width on desktop
-- **StatCard:** 2-column grid on mobile, 4-column on desktop
-- **Input:** Full width by default on mobile
-
----
-
-## ✅ Component Status
-
-| Component | Status | Accessibility | Tests | Documentation |
-|-----------|--------|---------------|-------|---------------|
-| Button | ✅ Complete | ✅ WCAG AA | - | ✅ Yes |
-| Input | ✅ Complete | ✅ WCAG AA | - | ✅ Yes |
-| Card | ✅ Complete | ✅ WCAG AA | - | ✅ Yes |
-| Badge | ✅ Complete | ✅ WCAG AA | - | ✅ Yes |
-| Checkbox | ✅ Complete | ✅ WCAG AA | - | ✅ Yes |
-| Toggle | ✅ Complete | ✅ WCAG AA | - | ✅ Yes |
-| Avatar | ✅ Complete | ✅ WCAG AA | - | ✅ Yes |
-| ProgressBar | ✅ Complete | ✅ WCAG AA | - | ✅ Yes |
-| Alert | ✅ Complete | ✅ WCAG AA | - | ✅ Yes |
-| StatCard | ✅ Complete | ✅ WCAG AA | - | ✅ Yes |
-| ListItem | ✅ Complete | ✅ WCAG AA | - | ✅ Yes |
-| SearchInput | ✅ Complete | ✅ WCAG AA | - | ✅ Yes |
-| BottomNav | ✅ Complete | ✅ WCAG AA | - | ✅ Yes |
-| Tabs | ✅ Complete | ✅ WCAG AA | - | ✅ Yes |
-
----
-
-## 🔄 Component Dependencies
-
-All components are **self-contained** with minimal external dependencies:
-
-- **React** (peer dependency)
-- **TypeScript** (for typing)
-- **Tailwind CSS** (for styling)
-
-No complex component hierarchies or interdependencies - each component can be used independently.
-
----
-
-## 📦 Export Structure
-
-```typescript
-// /src/app/components/index.ts
-
-export { Alert } from './Alert';
-export { Avatar } from './Avatar';
-export { Badge } from './Badge';
-export { BottomNav } from './BottomNav';
-export { Button } from './Button';
-export { Card } from './Card';
-export { Checkbox } from './Checkbox';
-export { Input } from './Input';
-export { ListItem } from './ListItem';
-export { ProgressBar } from './ProgressBar';
-export { SearchInput } from './SearchInput';
-export { StatCard } from './StatCard';
-export { Tabs } from './Tabs';
-export { Toggle } from './Toggle';
-
-// All types are also exported
-```
-
----
-
-**Last Updated:** April 25, 2026  
-**Design System Version:** 1.0  
-**Total Components:** 14
+Design system version: `1.2.0`

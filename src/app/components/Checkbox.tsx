@@ -7,7 +7,7 @@ export interface CheckboxProps extends Omit<InputHTMLAttributes<HTMLInputElement
 export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
   ({ label, className = '', ...props }, ref) => {
     return (
-      <label className="inline-flex items-center gap-2 cursor-pointer group">
+      <label className={`inline-flex items-center gap-2 cursor-pointer group ${className}`}>
         <div className="relative">
           <input
             ref={ref}

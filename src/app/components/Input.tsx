@@ -1,4 +1,4 @@
-import { InputHTMLAttributes, forwardRef, ReactNode } from 'react';
+import { InputHTMLAttributes, forwardRef, ReactNode, useId } from 'react';
 
 export interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   label?: string;
@@ -19,17 +19,30 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
       rightIcon,
       fullWidth = false,
       className = '',
+      id,
+      'aria-describedby': ariaDescribedBy,
       ...props
     },
     ref
   ) => {
+    const generatedId = useId();
+    const inputId = id || generatedId;
+    const errorId = `${inputId}-error`;
+    const helperTextId = `${inputId}-helper`;
     const containerClass = fullWidth ? 'w-full' : '';
     const hasError = !!error;
+    const describedBy = [
+      ariaDescribedBy,
+      error ? errorId : undefined,
+      helperText && !error ? helperTextId : undefined,
+    ]
+      .filter(Boolean)
+      .join(' ') || undefined;
 
     return (
       <div className={`flex flex-col gap-1.5 ${containerClass}`}>
         {label && (
-          <label className="text-sm font-medium text-neutral-700">
+          <label htmlFor={inputId} className="text-sm font-medium text-text-secondary">
             {label}
           </label>
         )}
@@ -41,6 +54,9 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
           )}
           <input
             ref={ref}
+            id={inputId}
+            aria-invalid={hasError || undefined}
+            aria-describedby={describedBy}
             className={`
               w-full h-11 px-4 rounded-md
               bg-input-background border border-border-default
@@ -62,10 +78,14 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
           )}
         </div>
         {error && (
-          <p className="text-sm text-status-error">{error}</p>
+          <p id={errorId} className="text-sm text-status-error">
+            {error}
+          </p>
         )}
         {helperText && !error && (
-          <p className="text-sm text-neutral-500">{helperText}</p>
+          <p id={helperTextId} className="text-sm text-text-muted">
+            {helperText}
+          </p>
         )}
       </div>
     );

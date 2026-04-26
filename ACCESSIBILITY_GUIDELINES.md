@@ -36,7 +36,7 @@ Each stable component should document and support:
 | Checkbox | Native checkbox input, visible custom control, label support |
 | Toggle | Native checkbox input with switch role where appropriate |
 | SearchInput | Clear button must have an accessible label |
-| Tabs | Tablist, tab, selected state, and tabpanel semantics |
+| Tabs | Tablist, tab, selected state, tabpanel semantics, and Arrow/Home/End keyboard support |
 | ProgressBar | Progressbar role with value attributes |
 | Alert | Status or alert role based on urgency |
 | BottomNav | Navigation landmark with active state |
@@ -49,4 +49,3 @@ Each stable component should document and support:
 - Are selected, expanded, checked, or busy states exposed?
 - Does text meet contrast requirements?
 - Does the component still work when text is longer than expected?
-
