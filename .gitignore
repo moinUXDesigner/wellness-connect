@@ -1,5 +1,6 @@
 # Dependencies
 node_modules/
+Counselling_App/
 
 # Build outputs
 dist/
